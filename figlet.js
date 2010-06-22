@@ -56,7 +56,7 @@ var Figlet = {
 		for (var i = 0; i < height; i++) {
 			charDefn[i] = fontDefn.defn[start + i]
 				.replace(/@/g, "")
-				.replace(fontDefn.hardblank, " ");
+				.replace(RegExp("\\" + fontDefn.hardblank, "g"), " ");
 		}
 		return fontDefn.char[char] = charDefn;
 	},
