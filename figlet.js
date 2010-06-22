@@ -26,8 +26,8 @@ var Figlet = {
 		var lines = defn.split("\n"),
 			header = lines[0].split(" "),
 			hardblank = header[0].charAt(header[0].length - 1),
-			height = header[1],
-			comments = header[5];
+			height = +header[1],
+			comments = +header[5];
 		
 		Figlet.fonts[name] = {
 			defn: lines.slice(comments + 1),
@@ -45,8 +45,7 @@ var Figlet = {
 		}
 		
 		var height = fontDefn.height,
-			// TODO: WTF? why does the offset not work properly?
-			start = (char - 38) * height;
+			start = (char - 32) * height;
 //			charDefn = fontDefn.defn.slice(start, start + height);
 //		while (height--) {
 //			charDefn[height] = charDefn[height].replace(/@/g, "");
@@ -87,6 +86,7 @@ Figlet.loadFont = function(name, fn) {
 };
 
 var puts = require("sys").puts;
-Figlet.write("hello", "graffiti", function(str) {
+Figlet.write("hello", "standard", function(str) {
 	puts(str);
 });
+
