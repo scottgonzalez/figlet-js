@@ -8,6 +8,8 @@
  * http://github.com/scottgonzalez/figlet-js
  */
 
+(function() {
+
 var Figlet = {
 	fonts: {},
 	
@@ -77,16 +79,11 @@ var Figlet = {
 	}
 };
 
+if (typeof exports !== "undefined") {
+	exports.Figlet = Figlet;
+} else {
+	window.Figlet = Figlet;
+}
 
-
-Figlet.loadFont = function(name, fn) {
-	require("fs").readFile("./fonts/" + name + ".flf", "utf-8", function(err, contents) {
-		fn(contents);
-	});
-};
-
-var puts = require("sys").puts;
-Figlet.write("hello", "standard", function(str) {
-	puts(str);
-});
+})();
 
