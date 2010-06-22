@@ -10,7 +10,7 @@
 
 (function() {
 
-var Figlet = {
+var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 	fonts: {},
 	
 	parseFont: function(name, fn) {
@@ -47,13 +47,10 @@ var Figlet = {
 		}
 		
 		var height = fontDefn.height,
-			start = (char - 32) * height;
-//			charDefn = fontDefn.defn.slice(start, start + height);
-//		while (height--) {
-//			charDefn[height] = charDefn[height].replace(/@/g, "");
-//		}
-		var charDefn = [];
-		for (var i = 0; i < height; i++) {
+			start = (char - 32) * height,
+			charDefn = [],
+			i;
+		for (i = 0; i < height; i++) {
 			charDefn[i] = fontDefn.defn[start + i]
 				.replace(/@/g, "")
 				.replace(RegExp("\\" + fontDefn.hardblank, "g"), " ");
@@ -78,12 +75,6 @@ var Figlet = {
 		});
 	}
 };
-
-if (typeof exports !== "undefined") {
-	exports.Figlet = Figlet;
-} else {
-	window.Figlet = Figlet;
-}
 
 })();
 
