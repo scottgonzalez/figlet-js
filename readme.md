@@ -24,3 +24,4 @@ jQuery
 
 	$("pre").figlet("jQuery", "graffiti");
 
+Written for Marak with love and spite.
