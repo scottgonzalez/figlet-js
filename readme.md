@@ -24,4 +24,4 @@ jQuery
 
 	$("pre").figlet("jQuery", "graffiti");
 
-Written for Marak with love and spite.
+Written for Marak with love and spite to support [asciimo](http://asciimo.com) ([source](http://github.com/marak/asciimo)).
