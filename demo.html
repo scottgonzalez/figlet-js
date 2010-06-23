@@ -4,27 +4,20 @@
 	<meta charset="utf-8">
 	<title>Figlet JS Demo</title>
 	
-	<script src="figlet.js"></script>
 	<script src="http://code.jquery.com/jquery-1.4.2.js"></script>
+	<script src="figlet.js"></script>
+	<script src="jquery.figlet.js"></script>
 	<script>
-	Figlet.loadFont = function(name, fn) {
-		$.ajax({
-			url: "fonts/" + name + ".flf",
-			dataType: "text",
-			success: fn
-		});
-	};
-	
 	$(function() {
-		Figlet.write("Figlet JS", "standard", function(str) {
-			$("#output").text(str);
-		});
+		$("#example1").figlet("Figlet JS");
+		$("#example2").figlet("jQuery plugin", "drpepper");
 	});
 	</script>
 </head>
 <body>
 
-<pre id="output"></pre>
+<pre id="example1"></pre>
+<pre id="example2"></pre>
 
 </body>
 </html>
