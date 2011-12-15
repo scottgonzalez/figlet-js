@@ -30,4 +30,4 @@ jQuery
 
 	$("pre").figlet("jQuery", "graffiti");
 
-Written for Marak to support [asciimo](http://asciimo.com) ([source](http://github.com/marak/asciimo)).
+Written for Marak to support [asciimo](http://github.com/marak/asciimo).
