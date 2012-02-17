@@ -1,0 +1,28 @@
+{
+  "description": "Serves figlet font-graphics!",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "union": "0.1.7",
+    "flatiron": "0.1.11"
+  },
+  "devDependencies": {
+    "api-easy": "0.3.2",
+    "vows": "0.6.1"
+  },
+  "scripts": {
+    "test": "vows --spec",
+    "start": "node ./gut/app.js"
+  },
+  "name": "Figlet-Gut",
+  "engines": {
+    "node": "*"
+  },
+  "author": "Nate Hunzaker <nate.hunzaker@gmail.com> (natehunzaker.com)",
+  "homepage": "figlet.nodejitsu.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nhunzaker/figlet-js.git"
+  },
+  "subdomain": "figlet"
+}
