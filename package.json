@@ -15,7 +15,7 @@
   },
   "name": "Figlet-Gut",
   "engines": {
-    "node": "*"
+    "node": "0.6.7"
   },
   "author": "Nate Hunzaker <nate.hunzaker@gmail.com> (natehunzaker.com)",
   "homepage": "figlet.nodejitsu.com",
