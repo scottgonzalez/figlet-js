@@ -74,28 +74,6 @@
 				  }
 				  result += "\n";
 			  }
-        
-
-        // If the treatment is set to 'rainbows', let's throw in the colors
-        if (treatment === 'rainbows') {
-          
-          // Grab colors NPM package
-          require('colors');
-
-          var spectrum = ['red', 'yellow', 'green', 'cyan', 'blue', 'magenta'],
-              phrase   = result.split("\n"),
-              slot     = 0;
-          
-          // Reset text
-          result = "";
-          
-          // Add rainbow post-processing to each line
-          phrase.forEach(function(i, d) {
-            slot = (d > spectrum.length) ? d : d % spectrum.length;
-            result += i[spectrum[slot]] + "\n";
-          });
-
-        }
 
         fn(result);
         
