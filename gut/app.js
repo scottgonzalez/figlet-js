@@ -4,11 +4,10 @@ var flatiron = require('flatiron'),
     port     = process.env.port || 3000,
     app      = flatiron.app,
     fs       = require("fs"),
-    fonts    = fs.readdirSync("../fonts").map(function(f) { 
+    fonts    = fs.readdirSync(__dirname + "/../fonts").map(function(f) { 
         return f.split(".flf")[0]; 
     });
 
-app.config.file({ file: path.join(__dirname, 'config', 'config.json') });
 app.use(flatiron.plugins.http);
 
 app.router.get('/', function () {
@@ -42,6 +41,6 @@ app.router.get('/browse', function () {
 
 });
 
-app.start(port);
-
-console.log("Figlet is listening to port %s", port);
+app.start(port, function() {
+    console.log("Figlet is listening to port", port);
+});
