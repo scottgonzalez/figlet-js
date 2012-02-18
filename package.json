@@ -2,7 +2,7 @@
   "author": "Nate Hunzaker <nate.hunzaker@gmail.com> (natehunzaker.com)",
   "name": "Figlet",
   "description": "Font art!",
-  "version": "0.0.1-2",
+  "version": "0.0.1-8",
   "homepage": "figlet.nodejitsu.com",
   "repository": {
     "type": "git",
@@ -10,16 +10,18 @@
   },
   "scripts": {
     "test": "vows --spec",
-    "start": "node gut/app.js"
+    "start": "node server.js"
   },
   "engines": {
     "node": "~0.6.4"
   },
   "dependencies": {
-    "flatiron": "*",
-    "connect": "*",
-    "socket.io": "*",
-    "union": "*"
+    "flatiron": "latest",
+    "union": "latest",
+    "utile": "latest",
+    "broadway": "latest",
+    "pkginfo": "latest",
+    "director": "latest"
   },
   "devDependencies": {},
   "subdomain": "figlet"
