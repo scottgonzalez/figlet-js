@@ -1,8 +1,9 @@
 {
-  "author": "Nate Hunzaker <nate.hunzaker@gmail.com> (natehunzaker.com)",
+  "author": "Scott Gonzalez",
+  "contributors": "Nate Hunzaker <nate.hunzaker@gmail.com> (natehunzaker.com)",
   "name": "Figlet",
   "description": "Font art!",
-  "version": "0.0.1-8",
+  "version": "0.0.1-12",
   "homepage": "figlet.nodejitsu.com",
   "repository": {
     "type": "git",
@@ -17,11 +18,7 @@
   },
   "dependencies": {
     "flatiron": "latest",
-    "union": "latest",
-    "utile": "latest",
-    "broadway": "latest",
-    "pkginfo": "latest",
-    "director": "latest"
+    "union": "latest"
   },
   "devDependencies": {},
   "subdomain": "figlet"
