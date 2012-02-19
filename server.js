@@ -15,6 +15,7 @@ app.use(flatiron.plugins.http);
 app.router.get('/', function () {
 
     var q    = this.req.query,
+        font = q.font || "standard",
         self = this;
 
     // Show welcome screen if no text specified
@@ -25,7 +26,7 @@ app.router.get('/', function () {
     }
 
     // Warn user if font does not exist
-    if (fonts.indexOf(q.font) === -1) {
+    if (fonts.indexOf(font) === -1) {
         return self.res.end("Figlet Server: I don't know this font, sorry :(");
     }
 
@@ -35,7 +36,7 @@ app.router.get('/', function () {
     }
 
     // Otherwise, write this sucker!
-    Figlet.write(q.text, q.font || "standard", function(str) {
+    Figlet.write(q.text, font, function(str) {
         self.res.end(str);
     });
     
