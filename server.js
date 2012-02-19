@@ -48,7 +48,7 @@ app.router.get('/browse', function () {
         output = [];
 
     // We don't want massive text injections, do we?
-    if (text.length > 500) {
+    if (text && text.length > 500) {
         return self.res.end("Figlet Server: Woah woah, easy does it. I can only take 500 characters at a time!");
     }
 
