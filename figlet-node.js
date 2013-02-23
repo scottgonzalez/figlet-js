@@ -8,13 +8,23 @@
  * http://github.com/scottgonzalez/figlet-js
  */
 
+var fs = require("fs");
+var path = require('path');
 var Figlet = require("./figlet").Figlet;
 
 Figlet.loadFont = function(name, fn) {
-	require("fs").readFile("./fonts/" + name + ".flf", "utf-8", function(err, contents) {
+
+	var fontFileName = name + ".flf";
+	
+	var filePath = path.resolve(__dirname, "fonts",  fontFileName);
+
+	fs.readFile(filePath, "utf8", function(err, contents) {
+
+		if (err) {throw err;}
+		// console.log('figlet-node.loadFont', err, contents);
+
 		fn(contents);
 	});
 };
 
 exports.Figlet = Figlet;
-
