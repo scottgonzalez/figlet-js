@@ -14,14 +14,13 @@ var Figlet = require("./figlet").Figlet;
 
 Figlet.loadFont = function(name, fn) {
 
-	var fontFileName = name + ".flf";
+	var fileName = name + ".flf";
 	
-	var filePath = path.resolve(__dirname, "fonts",  fontFileName);
+	var filePath = path.resolve(__dirname, "fonts", fileName);
 
 	fs.readFile(filePath, "utf8", function(err, contents) {
 
-		if (err) {throw err;}
-		// console.log('figlet-node.loadFont', err, contents);
+		if (err) { throw err; }
 
 		fn(contents);
 	});
