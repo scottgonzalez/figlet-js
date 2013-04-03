@@ -1,4 +1,4 @@
-/**
+ /**
  * Figlet JS node.js module
  * 
  * Copyright (c) 2010 Scott González
@@ -20,9 +20,7 @@ Figlet.loadFont = function(name, fn) {
 
 	fs.readFile(filePath, "utf8", function(err, contents) {
 
-		if (err) { throw err; }
-
-		fn(contents);
+		fn(err, contents);
 	});
 };
 

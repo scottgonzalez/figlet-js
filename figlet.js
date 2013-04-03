@@ -19,7 +19,11 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 			return;
 		}
 		
-		Figlet.loadFont(name, function(defn) {
+		Figlet.loadFont(name, function(err, defn) {
+			if (err) {
+				fn(err);
+				return;
+			}
 			Figlet._parseFont(name, defn, fn);
 		});
 	},
@@ -59,7 +63,11 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 	},
 
 	write: function(str, font, fn) {
-		Figlet.parseFont(font, function() {
+		Figlet.parseFont(font, function(err) {
+			if (err) {
+				fn(err);
+				return;
+			}
 			var chars = [],
 				result = "";
 			for (var i = 0, len = str.length; i < len; i++) {
@@ -71,7 +79,7 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 				}
 				result += "\n";
 			}
-			fn(result);
+			fn(null, result);
 		});
 	}
 };
