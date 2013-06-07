@@ -5,6 +5,8 @@
 	 \___  /   |___| \______  /|_______ \/_______  /  |____|            \________|/_______  /
 	     \/                 \/         \/        \/                                       \/ 
 
+[![Build Status](https://travis-ci.org/olizilla/figlet-js.png?branch=master)](https://travis-ci.org/olizilla/figlet-js)
+
 [Figlet](http://www.figlet.org/) is a program for making large letters out of ordinary text.
 
 Figlet-JS is a JavaScript implementation of a FIGdriver and is available as a Node module and a jQuery plugin.

@@ -54,6 +54,12 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 			start = (char - 32) * height,
 			charDefn = [],
 			i;
+		
+		// Is char defined?
+		if (!fontDefn.defn[start]) {
+			start = (" ".charCodeAt(0) - 32) * height;
+		}
+		
 		for (i = 0; i < height; i++) {
 			charDefn[i] = fontDefn.defn[start + i]
 				.replace(/@/g, "")
