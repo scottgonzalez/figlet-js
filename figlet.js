@@ -67,8 +67,12 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 		}
 		return fontDefn.char[char] = charDefn;
 	},
-
+	
 	write: function(str, font, fn) {
+		if (!str) {
+			return fn(null, "");
+		}
+		
 		Figlet.parseFont(font, function(err) {
 			if (err) {
 				fn(err);
@@ -79,7 +83,7 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 			for (var i = 0, len = str.length; i < len; i++) {
 				chars[i] = Figlet.parseChar(str.charCodeAt(i), font);
 			}
-			for (i = 0, height = chars[0].length; i < height; i++) {
+			for (i = 0; i < chars[0].length; i++) {
 				for (var j = 0; j < len; j++) {
 					result += chars[j][i];
 				}
