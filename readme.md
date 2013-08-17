@@ -31,3 +31,7 @@ jQuery
 	$("pre").figlet("jQuery", "graffiti");
 
 Written for Marak to support [asciimo](http://github.com/marak/asciimo).
+
+---
+
+Support this project by [donating on Gittip](https://www.gittip.com/scottgonzalez/).
