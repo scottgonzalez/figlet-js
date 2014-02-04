@@ -49,12 +49,25 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 		var height = fontDefn.height,
 			start = (char - 32) * height,
 			charDefn = [],
-			i;
-		for (i = 0; i < height; i++) {
-			charDefn[i] = fontDefn.defn[start + i]
-				.replace(/@/g, "")
-				.replace(RegExp("\\" + fontDefn.hardblank, "g"), " ");
-		}
+			i, begin, regex;
+        if (char >= 160) {
+            begin = char;
+            if (char > 255) {
+                begin = '0x0*' + char.toString(16);
+            }
+            regex = new RegExp('^' + begin, 'i');
+            for (i=0; i<fontDefn.defn.length; ++i) {
+                if (fontDefn.defn[i].match(regex)) {
+                    start = i+1;
+                    break;
+                }
+            }
+        }
+	    for (i = 0; i < height; i++) {
+		    charDefn[i] = fontDefn.defn[start + i]
+			    .replace(/@/g, "")
+			    .replace(RegExp("\\" + fontDefn.hardblank, "g"), " ");
+	    }
 		return fontDefn.char[char] = charDefn;
 	},
 
