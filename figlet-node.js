@@ -1,4 +1,4 @@
-/**
+ /**
  * Figlet JS node.js module
  * 
  * Copyright (c) 2010 Scott González
@@ -8,13 +8,20 @@
  * http://github.com/scottgonzalez/figlet-js
  */
 
+var fs = require("fs");
+var path = require('path');
 var Figlet = require("./figlet").Figlet;
 
 Figlet.loadFont = function(name, fn) {
-	require("fs").readFile("./fonts/" + name + ".flf", "utf-8", function(err, contents) {
-		fn(contents);
+
+	var fileName = name + ".flf";
+	
+	var filePath = path.resolve(__dirname, "fonts", fileName);
+
+	fs.readFile(filePath, "utf8", function(err, contents) {
+
+		fn(err, contents);
 	});
 };
 
 exports.Figlet = Figlet;
-
