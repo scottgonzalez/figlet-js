@@ -14,10 +14,10 @@
 Figlet.loadFont = function(name, fn) {
     var prefix = name.charAt(0) === '/' ? name : ("fonts/" + name)
     $.ajax({
-		url: prefi + ".flf",
-		dataType: "text",
-		success: fn
-	});
+	url: prefix + ".flf",
+	dataType: "text",
+	success: fn
+    });
 };
 
 $.fn.figlet = function(text, font) {
