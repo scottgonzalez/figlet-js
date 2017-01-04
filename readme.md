@@ -13,6 +13,8 @@ Figlet-JS is a JavaScript implementation of a FIGdriver and is available as a No
 
 For detailed information on fonts for Figlet, check out [the FIGfont documentation](http://www.jave.de/figlet/figfont.html).
 
+MXfiglet is an extension by Ian Holmes to add Matrix-style cascading background effects.
+
 Usage
 =====
 
