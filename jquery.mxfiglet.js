@@ -11,6 +11,17 @@
  */
 (function($) {
 
+    // figlet    
+    Figlet.loadFont = function(name, fn) {
+        var prefix = name.charAt(0) === '/' ? name : ("fonts/" + name)
+        $.ajax({
+	    url: prefi + ".flf",
+	    dataType: "text",
+	    success: fn
+	});
+    };
+
+    // mxfiglet
     var maxMutations = 8
     var inCascadeDelay = 50
     var betweenCascadeDelay = 100

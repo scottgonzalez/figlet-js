@@ -12,8 +12,9 @@
 (function($) {
 
 Figlet.loadFont = function(name, fn) {
-	$.ajax({
-		url: "fonts/" + name + ".flf",
+    var prefix = name.charAt(0) === '/' ? name : ("fonts/" + name)
+    $.ajax({
+		url: prefi + ".flf",
 		dataType: "text",
 		success: fn
 	});
