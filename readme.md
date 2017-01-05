@@ -15,7 +15,7 @@ For detailed information on fonts for Figlet, check out [the FIGfont documentati
 
 MXfiglet is an extension by Ian Holmes to add Matrix-style cascading background effects.
 
-[Interactive demo](https://biowiki.org/wiki/extensions/Figlet/figlet-js/)
+There is an [interactive demo at biowiki.org](https://biowiki.org/wiki/extensions/Figlet/figlet-js/).
 
 Usage
 =====
