@@ -8,8 +8,8 @@
                 fonts.push (match[1])
             }
             var outDiv = $('<div>'),
-                textInput = $('<input type="text">').text(text),
-                alphInput = $('<input type="text">').text(alph),
+                textInput = $('<input type="text">').val(text),
+                alphInput = $('<input type="text">').val(alph),
                 fontMenu = $('<select>')
             fonts.forEach (function (font) { fontMenu.append ($('<option>').attr('value',font).text(font)) })
             function update() {
