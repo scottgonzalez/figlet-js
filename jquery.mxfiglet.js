@@ -21,6 +21,16 @@
 	});
     };
 
+    $.fn.figlet = function(text, font) {
+	var elems = this;
+	Figlet.write(text, font || $.fn.figlet.defaultFont, function(str) {
+	    elems.text(str);
+	});
+	return this;
+    };
+
+    $.fn.figlet.defaultFont = "standard";
+
     // mxfiglet
     var maxMutations = 8
     var inCascadeDelay = 50
@@ -34,14 +44,6 @@
     function spaces(n) {
         return new Array(n+1).join(" ")
     }
-    
-    Figlet.loadFont = function(name, fn) {
-	$.ajax({
-	    url: "fonts/" + name + ".flf",
-	    dataType: "text",
-	    success: fn
-	});
-    };
 
     $.fn.mxfiglet = function(text, opts) {
 	var elems = this;

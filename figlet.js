@@ -45,12 +45,14 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 	
 	parseChar: function(char, font) {
 		var fontDefn = Figlet.fonts[font];
+		var height = fontDefn.height
+	        if (char < 32 || char > 126)
+		    return Array(height).fill('')
 		if (char in fontDefn.char) {
 			return fontDefn.char[char];
 		}
 		
-		var height = fontDefn.height,
-			start = (char - 32) * height,
+	        var start = (char - 32) * height,
 			charDefn = [],
 			i;
 		for (i = 0; i < height; i++) {
@@ -66,7 +68,8 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 			var chars = [],
 				result = "";
 			for (var i = 0, len = str.length; i < len; i++) {
-				chars[i] = Figlet.parseChar(str.charCodeAt(i), font);
+			    var c = Figlet.parseChar(str.charCodeAt(i), font);
+			    if (c) chars.push(c)
 			}
 			for (i = 0, height = chars[0].length; i < height; i++) {
 				for (var j = 0; j < len; j++) {
