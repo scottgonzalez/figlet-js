@@ -1,5 +1,6 @@
 (function($) {
     $.fn.mxdemo = function (text, alph, fontPath) {
+        var parentDiv = $(this)
         fontPath = (fontPath || 'fonts') + '/'
         $.get (fontPath, function (data) {
             var re = new RegExp ('href="(.*?)"', 'g'), match, fonts = []
@@ -21,7 +22,7 @@
                 timer = setTimeout (update, 100)
             }
             [textInput, alphInput, fontMenu].forEach (function (control) { control.change(change) })
-            $(this).append(outDiv,textInput,alphInput,fontMenu)
+            parentDiv.append(outDiv,textInput,alphInput,fontMenu)
             update()
         })
     }
