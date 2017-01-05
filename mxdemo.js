@@ -3,7 +3,7 @@
         var parentDiv = $(this)
         fontPath = (fontPath || 'fonts') + '/'
         $.get (fontPath, function (data) {
-            var re = new RegExp ('href="(.*?)"', 'g'), match, fonts = []
+            var re = new RegExp ('href="(.*?\.flf)"', 'g'), match, fonts = []
             while (match = re.exec(data)) {
                 fonts.push (match[1])
             }
