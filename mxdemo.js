@@ -21,7 +21,7 @@
                 timer = setTimeout (update, 100)
             }
             [textInput, alphInput, fontMenu].forEach (function (control) { control.change(change) })
-            this.append(outDiv,textInput,alphInput,fontMenu)
+            $(this).append(outDiv,textInput,alphInput,fontMenu)
             update()
         })
     }
