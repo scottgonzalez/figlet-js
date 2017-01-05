@@ -11,7 +11,12 @@
                 textInput = $('<input type="text">').val(text),
                 alphInput = $('<input type="text">').val(alph),
                 fontMenu = $('<select>')
-            fonts.forEach (function (font) { fontMenu.append ($('<option>').attr('value',font).text(font)) })
+            fonts.forEach (function (font) {
+                var opt = $('<option>').attr('value',font).text(font)
+                if (font === $.fn.mxfiglet.defaultFont)
+                    opt.attr('selected','selected')
+                fontMenu.append (opt)
+            })
             function update() {
                 outDiv.mxfiglet (textInput.val(),
                                  { alphabet: alphInput.val(),
