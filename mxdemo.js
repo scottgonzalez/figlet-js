@@ -18,9 +18,9 @@
                 fontMenu.append (opt)
             })
             function update() {
-                outDiv.mxfiglet (textInput.val(),
-                                 { alphabet: alphInput.val(),
-                                   font: fontMenu.val() })
+                outDiv.empty().mxfiglet (textInput.val(),
+                                         { alphabet: alphInput.val(),
+                                           font: fontMenu.val() })
             }
             var timer
             function change() {
