@@ -3,24 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<title>Figlet JS Demo</title>
-	
+
+	<link rel="stylesheet" href="mxfiglet.css"></link>
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="figlet.js"></script>
-	<script src="jquery.figlet.js"></script>
+	<script src="jquery.mxfiglet.js"></script>
 	<script>
 	$(function() {
-		$("#example1").figlet("Figlet JS");
-		$("#example2").figlet("jQuery", "drpepper");
-		$("#example3").figlet("plugin","roman");
+		$("#example1").mxfiglet("Hex");
+		$("#example2").mxfiglet("DNA",{alphabet:"acgt"});
 	});
 	</script>
 </head>
 <body>
 
-<pre id="example1"></pre>
-<pre id="example2"></pre>
-<pre id="example3"></pre>
-
+  <div id="example1"></div>
+  <div id="example2"></div>
+  
 </body>
 </html>
-

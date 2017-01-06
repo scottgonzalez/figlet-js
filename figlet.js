@@ -29,11 +29,14 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 			header = lines[0].split(" "),
 			hardblank = header[0].charAt(header[0].length - 1),
 			height = +header[1],
-			comments = +header[5];
+		        comments = +header[5],
+		        firstline = lines[comments+1],
+		        finalchar = firstline.charAt(firstline.length - 1);
 		
 		Figlet.fonts[name] = {
 			defn: lines.slice(comments + 1),
-			hardblank: hardblank,
+		        hardblank: hardblank,
+                        finalchar: finalchar,
 			height: height,
 			char: {}
 		};
@@ -42,18 +45,20 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 	
 	parseChar: function(char, font) {
 		var fontDefn = Figlet.fonts[font];
+		var height = fontDefn.height
+	        if (char < 32 || char > 126)
+		    return Array(height).fill('')
 		if (char in fontDefn.char) {
 			return fontDefn.char[char];
 		}
 		
-		var height = fontDefn.height,
-			start = (char - 32) * height,
+	        var start = (char - 32) * height,
 			charDefn = [],
 			i;
 		for (i = 0; i < height; i++) {
 			charDefn[i] = fontDefn.defn[start + i]
-				.replace(/@/g, "")
-				.replace(RegExp("\\" + fontDefn.hardblank, "g"), " ");
+			.replace(RegExp(fontDefn.finalchar,"g"), "")
+			.replace(RegExp("\\" + fontDefn.hardblank, "g"), " ");
 		}
 		return fontDefn.char[char] = charDefn;
 	},
@@ -63,7 +68,8 @@ var Figlet = (typeof exports !== "undefined" ? exports : window).Figlet = {
 			var chars = [],
 				result = "";
 			for (var i = 0, len = str.length; i < len; i++) {
-				chars[i] = Figlet.parseChar(str.charCodeAt(i), font);
+			    var c = Figlet.parseChar(str.charCodeAt(i), font);
+			    if (c) chars.push(c)
 			}
 			for (i = 0, height = chars[0].length; i < height; i++) {
 				for (var j = 0; j < len; j++) {

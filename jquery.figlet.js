@@ -12,11 +12,12 @@
 (function($) {
 
 Figlet.loadFont = function(name, fn) {
-	$.ajax({
-		url: "fonts/" + name + ".flf",
-		dataType: "text",
-		success: fn
-	});
+    var prefix = name.charAt(0) === '/' ? name : ("fonts/" + name)
+    $.ajax({
+	url: prefix + ".flf",
+	dataType: "text",
+	success: fn
+    });
 };
 
 $.fn.figlet = function(text, font) {

@@ -1,0 +1,36 @@
+.matrix-figlet {
+    display: inline-block;
+    padding-bottom: 1px;
+    background: black;
+    color: white;
+    font-family: monospace;
+}
+
+.matrix-figlet div {
+    line-height: 1;
+}
+
+.matrix-figlet span {
+}
+
+.matrix-figlet span.fg {
+    color: white;
+}
+
+.matrix-figlet span.bg {
+    color: darkgreen;
+}
+
+.matrix-figlet span.bg.pulse {
+    color: darkgreen;
+    -webkit-animation: mxfig-color-change 1s;
+    -moz-animation: mxfig-color-change 1s;
+    -ms-animation: mxfig-color-change 1s;
+    -o-animation: mxfig-color-change 1s;
+    animation: mxfig-color-change 1s;
+}
+
+@-webkit-keyframes mxfig-color-change {
+	from { color: lawngreen; }
+	to { color: darkgreen; }
+}
